@@ -9,4 +9,34 @@
     --sand: rgb(196, 166, 105);
     --verdant: rgb(31, 130, 31);
     --spring: rgb(109, 186, 61);
+    --marginMain: 2em;
+    --paddingMain: 1em;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--turquise);
+    color: var(--water);
+}
+
+.navbar {
+    background-color: var(--earth);
+}
+
+header h1 {
+    color: var(--water);
+    padding: 1em;
+}
+
+.card {
+    margin: var(--marginMain);
+    padding: var(--paddingMain);
+    background-color: var(--sun);
+}
+
+.card-2 {
+    margin: var(--marginMain);
+    padding: var(--paddingMain);
+    background-color: var(--spring);
 }
