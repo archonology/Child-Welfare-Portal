@@ -1,12 +1,12 @@
 :root{
     --elder: rgb(253, 251, 247);
     --earth: rgb(216, 51, 6);
-    --air: rgb(255, 230, 0);
+    --air: rgb(247, 224, 21);
     --water: rgb(13, 12, 12);
     --clay: rgb(230, 81, 1);
     --turquise: rgb(35, 141, 141);
     --sun: rgb(255, 190, 24);
-    --sand: rgb(196, 166, 105);
+    --sand: rgb(230, 196, 128);
     --verdant: rgb(31, 130, 31);
     --spring: rgb(109, 186, 61);
     --marginMain: 2em;
@@ -16,12 +16,12 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background-color: var(--turquise);
+    background-color: var(--clay);
     color: var(--water);
 }
 
 .navbar {
-    background-color: var(--earth);
+    background-color: var(--elder);
 }
 
 header h1 {
@@ -32,11 +32,32 @@ header h1 {
 .card {
     margin: var(--marginMain);
     padding: var(--paddingMain);
-    background-color: var(--sun);
+    background-color: var(--elder);
+    max-width: 500px;
 }
 
 .card-2 {
     margin: var(--marginMain);
     padding: var(--paddingMain);
-    background-color: var(--spring);
+    background-color: var(--elder);
+}
+
+.jumbotron h1 {
+    color: var(--elder);
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: 0px;
+    margin: 3px;
+}
+
+@media screen and (max-width: 1000px) {
+    .navbar-toggler {
+        margin: var(--marginMain);
+      }
+      .nav-link {
+        margin-right: 2em;
+        text-align: right;
+      }
 }
