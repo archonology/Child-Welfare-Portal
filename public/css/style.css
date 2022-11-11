@@ -33,7 +33,7 @@ header h1 {
     margin: var(--marginMain);
     padding: var(--paddingMain);
     background-color: var(--elder);
-    max-width: 500px;
+    /* max-width: 500px; */
 }
 
 .card-2 {
