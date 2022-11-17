@@ -5,15 +5,15 @@ const {
     createResource,
     updateResource,
     deleteResource,
-} = require('../../controllers/diversityController');
+} = require('../../controllers/ethicsController');
 
-// /api/diversity
+// /api/ethics
 router.route('/').get(getResources).post(createResource);
 
-// /api/diversity/:_id
+// /api/ethics/:_id
 router.route('/:_id').get(getOneResource).put(updateResource);
 
-// /api/diversity/:_id
+// /api/ethics/:_id
 router.route('/:_id').get(getOneResource).delete(deleteResource);
 
 module.exports = router;
