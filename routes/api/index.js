@@ -4,44 +4,43 @@ const userRoutes = require('./user-routes')
 const subscriberRoutes = require('./subscriber-routes');
 
 //resource routes
-const userRoutes = require('./abuse-routes')
-const userRoutes = require('./advocacy-routes')
-const userRoutes = require('./casePlanning-routes')
-const userRoutes = require('./court-routes')
-const userRoutes = require('./cpLaw-routes')
-const userRoutes = require('./dataPrivacy-routes')
-const userRoutes = require('./diversity-routes')
-const userRoutes = require('./edNeglect-routes')
-const userRoutes = require('./ethics-routes')
-const userRoutes = require('./fosterCare-routes')
-const userRoutes = require('./history-routes')
-const userRoutes = require('./incarceration-routes')
-const userRoutes = require('./mentalHealth-routes')
-const userRoutes = require('./parenting-routes')
-const userRoutes = require('./ssis-routes')
-const userRoutes = require('./subscriber-routes')
-const userRoutes = require('./substanceAbuse-routes')
+const abuseRoutes = require('./abuse-routes')
+const advoRoutes = require('./advocacy-routes')
+const planningRoutes = require('./casePlanning-routes')
+const courtRoutes = require('./court-routes')
+const cplawRoutes = require('./cpLaw-routes')
+const dataRoutes = require('./dataPrivacy-routes')
+const diverseRoutes = require('./diversity-routes')
+const edRoutes = require('./edNeglect-routes')
+const ethicsRoutes = require('./ethics-routes')
+const fosterRoutes = require('./fosterCare-routes')
+const historyRoutes = require('./history-routes')
+const incarRoutes = require('./incarceration-routes')
+const mhRoutes = require('./mentalHealth-routes')
+const parentingRoutes = require('./parenting-routes')
+const ssisRoutes = require('./ssis-routes')
+const substRoutes = require('./substanceAbuse-routes')
 
 //set the url routes
 router.use('/subscribers', subscriberRoutes);
 router.use('/users', userRoutes);
 //resource url routes
-router.use('/abuse', userRoutes);
-router.use('/advocacy', userRoutes);
-router.use('/planning', userRoutes);
-router.use('/court', userRoutes);
-router.use('/cplaw', userRoutes);
-router.use('/dataprivacy', userRoutes);
-router.use('/diversity', userRoutes);
-router.use('/edneglect', userRoutes);
-router.use('/ethics', userRoutes);
-router.use('/fostercare', userRoutes);
-router.use('/history', userRoutes);
-router.use('/incarceration', userRoutes);
-router.use('/mentalhealth', userRoutes);
-router.use('/parenting', userRoutes);
-router.use('/ssis', userRoutes);
-router.use('/substances', userRoutes);
+router.use('/abuse', abuseRoutes);
+router.use('/advocacy', advoRoutes);
+router.use('/planning', planningRoutes);
+router.use('/court', courtRoutes);
+router.use('/cplaw', cplawRoutes);
+router.use('/dataprivacy', dataRoutes);
+router.use('/diversity', diverseRoutes);
+router.use('/edneglect', edRoutes);
+router.use('/ethics', ethicsRoutes);
+router.use('/fostercare', fosterRoutes);
+router.use('/history', historyRoutes);
+router.use('/incarceration', incarRoutes);
+router.use('/mentalhealth', mhRoutes);
+router.use('/parenting', parentingRoutes);
+router.use('/ssis', ssisRoutes);
+router.use('/substances', substRoutes);
 
 
 module.exports = router;
