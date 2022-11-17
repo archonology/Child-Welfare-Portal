@@ -1,9 +1,11 @@
 const { Schema, model } = require('mongoose');
-const subscriberSchema = new Schema(
+
+const userSchema = new Schema(
     {
-        subscriberName: {
+        username: {
             type: String,
             required: true,
+            unique: true,
             trim: true,
         },
         email: {
@@ -18,6 +20,16 @@ const subscriberSchema = new Schema(
             },
             required: [true, 'User email is required']
         },
+        password: {
+            type: String,
+            required: true,
+            validate: {
+                validator: function (v) {
+                    return /^[A-Za-z]\w{7,14}$/.test(v);
+                },
+                message: props => `Password not secure. Please create a password between 7-14 characters long.`
+            },
+        },
     },
     {
         toJSON: {
@@ -27,13 +39,14 @@ const subscriberSchema = new Schema(
     },
 );
 
-//this will get the number of total subscribers.
-subscriberSchema
-    .virtual('subscriberCount')
+//virtual to get the total user count
+userSchema
+    .virtual('userCount')
     // Getter
     .get(function () {
         return this.length;
     });
 
-const Subscriber = model('subscriber', subscriberSchema);
-module.exports = Subscriber;
+const User = model('user', userSchema);
+module.exports = User;
+

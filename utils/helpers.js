@@ -1,11 +1,8 @@
-module.exports = {
-    // to use for formatting date/time as needed
-    format_time: (date) => {
-      return date.toLocaleTimeString();
-    },
-    format_date: (date) => {
-      return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${
-        new Date(date).getFullYear()
-      }`;
-    },
-  };
+//use moment js for time formatting
+const moment = require('moment');
+
+//format timestamps
+const dateFormat = () => 
+moment().format('DD-MM-YYYY');
+
+module.exports = dateFormat;
