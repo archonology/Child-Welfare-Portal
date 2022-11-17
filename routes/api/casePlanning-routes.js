@@ -5,7 +5,7 @@ const {
     createResource,
     updateResource,
     deleteResource,
-} = require('../../controllers/planningController');
+} = require('../../controllers/casePlanningController');
 
 // /api/planning
 router.route('/').get(getResources).post(createResource);

@@ -5,7 +5,7 @@ const {
     createResource,
     updateResource,
     deleteResource,
-} = require('../../controllers/edneglectController');
+} = require('../../controllers/edNeglectController');
 
 // /api/edneglect
 router.route('/').get(getResources).post(createResource);

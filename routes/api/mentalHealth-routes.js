@@ -5,7 +5,7 @@ const {
     createResource,
     updateResource,
     deleteResource,
-} = require('../../controllers/mentalhealthController');
+} = require('../../controllers/mentalHealthController');
 
 // /api/mentalhealth
 router.route('/').get(getResources).post(createResource);

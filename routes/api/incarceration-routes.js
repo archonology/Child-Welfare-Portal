@@ -5,7 +5,7 @@ const {
     createResource,
     updateResource,
     deleteResource,
-} = require('../../controllers/incarcerationController');
+} = require('../../controllers/incarcerateController');
 
 // /api/incarceration
 router.route('/').get(getResources).post(createResource);

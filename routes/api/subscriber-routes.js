@@ -5,7 +5,7 @@ const {
     createSubscriber,
     updateSubscriber,
     deleteSubscriber,
-} = require('../../controllers/userController');
+} = require('../../controllers/subscriberController');
 
 // /api/subscribers
 router.route('/').get(getSubscribers).post(createSubscriber);

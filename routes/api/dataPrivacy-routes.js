@@ -5,7 +5,7 @@ const {
     createResource,
     updateResource,
     deleteResource,
-} = require('../../controllers/dataprivacyController');
+} = require('../../controllers/dataPrivacyController');
 
 // /api/dataprivacy
 router.route('/').get(getResources).post(createResource);
