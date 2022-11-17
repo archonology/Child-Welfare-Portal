@@ -21,26 +21,5 @@ const Parenting = require('./Parenting');
 const Ssis = require('./SSIS');
 const SubstanceAbuse = require('./SubstanceAbuse');
 
-//user and subscriber exports
-module.exports = User;
-module.exports = Subscriber;
-
-//resource table exports
-module.exports = Abuse;
-module.exports = Advocacy;
-module.exports = CasePlanning;
-module.exports = Court;
-module.exports = CpLaw;
-module.exports = DataPrivacy;
-module.exports = Diversity;
-module.exports = EdNeglect;
-module.exports = Ethics;
-module.exports = FosterCare;
-module.exports = History;
-module.exports = Incarceration;
-module.exports = Interviewing;
-module.exports = Ive;
-module.exports = MentalHealth;
-module.exports = Parenting;
-module.exports = Ssis;
-module.exports = SubstanceAbuse;
+// exports
+module.exports = { User, Subscriber, Abuse, Advocacy, CasePlanning, Court, CpLaw, DataPrivacy, Diversity, EdNeglect, Ethics, FosterCare, History, Incarceration, Interviewing, Ive, MentalHealth, Parenting, Ssis, SubstanceAbuse };

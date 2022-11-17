@@ -56,7 +56,7 @@ module.exports = {
             { runValidators: true, new: true }
         )
             .then((resource) =>
-                !planning
+                !resource
                     ? res.status(404).json({ message: 'No resource with this id!' })
                     : res.json(resource)
             )

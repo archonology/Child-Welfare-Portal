@@ -3,6 +3,6 @@ const moment = require('moment');
 
 //format timestamps
 const dateFormat = () => 
-moment().format('DD-MM-YYYY');
+moment().format('MM-DD-YYYY');
 
 module.exports = dateFormat;
