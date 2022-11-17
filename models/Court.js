@@ -38,7 +38,7 @@ const courtSchema = new Schema(
 
 //this will get the length of items in the court table.
 courtSchema
-    .virtual('courtCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

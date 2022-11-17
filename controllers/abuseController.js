@@ -1,20 +1,20 @@
 const { Abuse } = require('../models');
 
-// aggregate function to get abuseCount (count of resources)
-const abuseCount = async () =>
-    Abuse.aggregate().count('abuseCount')
-        .then((numberOfAbuses) => numberOfAbuses);
+// aggregate function to get resourceCount (count of resources)
+const resourceCount = async () =>
+Abuse.aggregate().count('resourceCount')
+        .then((numberOfResources) => numberOfResources);
 
 module.exports = {
     // Get all resources
     getResources(req, res) {
         Abuse.find()
-            .then(async (abuses) => {
-                const abuseObj = {
-                    abuses,
-                    abuseCount: await abuseCount(),
+            .then(async (resources) => {
+                const resourceObj = {
+                    resources,
+                    abuseResourceCount: await resourceCount(),
                 };
-                return res.json(abuseObj);
+                return res.json(resourceObj);
             })
             .catch((err) => {
                 console.log(err);
@@ -26,12 +26,12 @@ module.exports = {
         Abuse.findOne({ _id: req.params._id })
             .select('-__v')
             .lean()
-            .then(async (Abuse) =>
-                !Abuse
+            .then(async (resource) =>
+                !resource
                     ? res.status(404).json({ message: 'No entry with that ID' })
                     : res.json({
-                        Abuse,
-                        abuseCount: await abuseCount(),
+                        resource,
+                        resourceCount: await resourceCount(),
                     })
             )
             .catch((err) => {
@@ -40,14 +40,14 @@ module.exports = {
             });
     },
 
-    // create a new abuse resource
+    // create a new resource
     createResource(req, res) {
         Abuse.create(req.body)
-            .then((Abuse) => res.json(Abuse))
+            .then((resource) => res.json(resource))
             .catch((err) => res.status(500).json(err));
     },
 
-    // Update an abuse resource
+    // Update a resource
     updateResource(req, res) {
         console.log('You are updating a resource');
         Abuse.findOneAndUpdate(
@@ -55,19 +55,19 @@ module.exports = {
             { $set: req.body },
             { runValidators: true, new: true }
         )
-            .then((Abuse) =>
-                !Abuse
+            .then((resource) =>
+                !planning
                     ? res.status(404).json({ message: 'No resource with this id!' })
-                    : res.json(Abuse)
+                    : res.json(resource)
             )
             .catch((err) => res.status(500).json(err));
     },
-    // Delete an abuse resource 
+    // Delete a resource 
     deleteResource(req, res) {
         console.log('You are deleting a resource');
         Abuse.findOneAndRemove({ _id: req.params._id })
-            .then((Abuse) =>
-                !Abuse
+            .then((resource) =>
+                !resource
                     ? res.status(404).json({ message: 'No such resource exists.' })
                     : res.json({ message: 'Resource successfully deleted.' })
             )

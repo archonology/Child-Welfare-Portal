@@ -38,7 +38,7 @@ const parentingSchema = new Schema(
 
 //this will get the length of items in the parenting table.
 parentingSchema
-    .virtual('parentingCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

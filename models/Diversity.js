@@ -38,7 +38,7 @@ const diversitySchema = new Schema(
 
 //this will get the length of items in the diversity table.
 diversitySchema
-    .virtual('diversityCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

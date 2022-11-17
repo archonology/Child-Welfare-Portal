@@ -38,7 +38,7 @@ const cpLawSchema = new Schema(
 
 //this will get the length of items in the cpLaw table.
 cpLawSchema
-    .virtual('cpLawCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

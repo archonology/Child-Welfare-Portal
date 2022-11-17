@@ -38,7 +38,7 @@ const ethicsSchema = new Schema(
 
 //this will get the length of items in the ethics table.
 ethicsSchema
-    .virtual('ethicsCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

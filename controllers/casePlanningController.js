@@ -1,20 +1,20 @@
 const { CasePlanning } = require('../models');
 
-// aggregate function to get casePlanningCount (count of resources)
-const casePlanningCount = async () =>
-CasePlanning.aggregate().count('casePlanningCount')
-        .then((numberOfCasePlannings) => numberOfCasePlannings);
+// aggregate function to get resourceCount (count of resources)
+const resourceCount = async () =>
+CasePlanning.aggregate().count('resourceCount')
+        .then((numberOfResources) => numberOfResources);
 
 module.exports = {
     // Get all resources
     getResources(req, res) {
         CasePlanning.find()
-            .then(async (CasePlannings) => {
-                const planningObj = {
-                    CasePlannings,
-                    casePlanningCount: await casePlanningCount(),
+            .then(async (resources) => {
+                const resourceObj = {
+                    resources,
+                    casePlanningResourceCount: await resourceCount(),
                 };
-                return res.json(planningObj);
+                return res.json(resourceObj);
             })
             .catch((err) => {
                 console.log(err);
@@ -26,12 +26,12 @@ module.exports = {
         CasePlanning.findOne({ _id: req.params._id })
             .select('-__v')
             .lean()
-            .then(async (planning) =>
-                !planning
+            .then(async (resource) =>
+                !resource
                     ? res.status(404).json({ message: 'No entry with that ID' })
                     : res.json({
-                        CasePlanning,
-                        casePlanningCount: await casePlanningCount(),
+                        resource,
+                        resourceCount: await resourceCount(),
                     })
             )
             .catch((err) => {
@@ -40,14 +40,14 @@ module.exports = {
             });
     },
 
-    // create a new abuse resource
+    // create a new resource
     createResource(req, res) {
         CasePlanning.create(req.body)
-            .then((CasePlanning) => res.json(CasePlanning))
+            .then((resource) => res.json(resource))
             .catch((err) => res.status(500).json(err));
     },
 
-    // Update an abuse resource
+    // Update a resource
     updateResource(req, res) {
         console.log('You are updating a resource');
         CasePlanning.findOneAndUpdate(
@@ -55,19 +55,19 @@ module.exports = {
             { $set: req.body },
             { runValidators: true, new: true }
         )
-            .then((planning) =>
+            .then((resource) =>
                 !planning
                     ? res.status(404).json({ message: 'No resource with this id!' })
-                    : res.json(Abuse)
+                    : res.json(resource)
             )
             .catch((err) => res.status(500).json(err));
     },
-    // Delete an abuse resource 
+    // Delete a resource 
     deleteResource(req, res) {
         console.log('You are deleting a resource');
         CasePlanning.findOneAndRemove({ _id: req.params._id })
-            .then((planning) =>
-                !planning
+            .then((resource) =>
+                !resource
                     ? res.status(404).json({ message: 'No such resource exists.' })
                     : res.json({ message: 'Resource successfully deleted.' })
             )

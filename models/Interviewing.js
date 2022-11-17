@@ -38,7 +38,7 @@ const interviewingSchema = new Schema(
 
 //this will get the length of items in the interviewing table.
 interviewingSchema
-    .virtual('interviewingCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

@@ -38,7 +38,7 @@ const historySchema = new Schema(
 
 //this will get the length of items in the history table.
 historySchema
-    .virtual('historyCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

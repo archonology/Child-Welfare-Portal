@@ -1,20 +1,20 @@
 const { Advocacy } = require('../models');
 
-// aggregate function to get advocacyCount (count of resources)
-const advocacyCount = async () =>
-Advocacy.aggregate().count('advocacyCount')
-        .then((numberOfAdvocacys) => numberOfAdvocacys);
+// aggregate function to get resourceCount (count of resources)
+const resourceCount = async () =>
+Advocacy.aggregate().count('resourceCount')
+        .then((numberOfResources) => numberOfResources);
 
 module.exports = {
     // Get all resources
     getResources(req, res) {
         Advocacy.find()
-            .then(async (advocacys) => {
-                const abuseObj = {
-                    advocacys,
-                    advocacyCount: await advocacyCount(),
+            .then(async (resources) => {
+                const resourceObj = {
+                    resources,
+                    advocacyResourceCount: await resourceCount(),
                 };
-                return res.json(abuseObj);
+                return res.json(resourceObj);
             })
             .catch((err) => {
                 console.log(err);
@@ -26,12 +26,12 @@ module.exports = {
         Advocacy.findOne({ _id: req.params._id })
             .select('-__v')
             .lean()
-            .then(async (Advocacy) =>
-                !Advocacy
+            .then(async (resource) =>
+                !resource
                     ? res.status(404).json({ message: 'No entry with that ID' })
                     : res.json({
-                        Advocacy,
-                        advocacyCount: await advocacyCount(),
+                        resource,
+                        resourceCount: await resourceCount(),
                     })
             )
             .catch((err) => {
@@ -40,14 +40,14 @@ module.exports = {
             });
     },
 
-    // create a new abuse resource
+    // create a new resource
     createResource(req, res) {
         Advocacy.create(req.body)
-            .then((Advocacy) => res.json(Advocacy))
+            .then((resource) => res.json(resource))
             .catch((err) => res.status(500).json(err));
     },
 
-    // Update an abuse resource
+    // Update a resource
     updateResource(req, res) {
         console.log('You are updating a resource');
         Advocacy.findOneAndUpdate(
@@ -55,19 +55,19 @@ module.exports = {
             { $set: req.body },
             { runValidators: true, new: true }
         )
-            .then((Advocacy) =>
-                !Advocacy
+            .then((resource) =>
+                !planning
                     ? res.status(404).json({ message: 'No resource with this id!' })
-                    : res.json(Abuse)
+                    : res.json(resource)
             )
             .catch((err) => res.status(500).json(err));
     },
-    // Delete an abuse resource 
+    // Delete a resource 
     deleteResource(req, res) {
         console.log('You are deleting a resource');
         Advocacy.findOneAndRemove({ _id: req.params._id })
-            .then((Advocacy) =>
-                !Advocacy
+            .then((resource) =>
+                !resource
                     ? res.status(404).json({ message: 'No such resource exists.' })
                     : res.json({ message: 'Resource successfully deleted.' })
             )

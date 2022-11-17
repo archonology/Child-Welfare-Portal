@@ -38,7 +38,7 @@ const mentalHealthSchema = new Schema(
 
 //this will get the length of items in the mentalHealth table.
 mentalHealthSchema
-    .virtual('mentalHealthCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

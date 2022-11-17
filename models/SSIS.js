@@ -38,7 +38,7 @@ const ssisSchema = new Schema(
 
 //this will get the length of items in the ssis table.
 ssisSchema
-    .virtual('ssisCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

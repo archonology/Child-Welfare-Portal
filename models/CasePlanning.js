@@ -38,7 +38,7 @@ const casePlanningSchema = new Schema(
 
 //this will get the length of items in the casePlanning table.
 casePlanningSchema
-    .virtual('casePlanningCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

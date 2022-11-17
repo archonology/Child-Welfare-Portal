@@ -38,7 +38,7 @@ const substanceAbuseSchema = new Schema(
 
 //this will get the length of items in the substanceAbuse table.
 substanceAbuseSchema
-    .virtual('substanceAbuseCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

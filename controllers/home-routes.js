@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const Subscribers = require("../models/Subscriber");
 
 //Get the homepage
 router.get('/', async (req, res) => {

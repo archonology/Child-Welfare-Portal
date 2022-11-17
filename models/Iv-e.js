@@ -38,7 +38,7 @@ const iveSchema = new Schema(
 
 //this will get the length of items in the ive table.
 iveSchema
-    .virtual('iveCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

@@ -38,7 +38,7 @@ const abuseSchema = new Schema(
 
 //this will get the length of items in the abuse table.
 abuseSchema
-    .virtual('abuseCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

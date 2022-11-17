@@ -38,7 +38,7 @@ const fosterCareSchema = new Schema(
 
 //this will get the length of items in the fosterCare table.
 fosterCareSchema
-    .virtual('fosterCareCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

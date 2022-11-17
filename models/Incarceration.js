@@ -38,7 +38,7 @@ const incarcerationSchema = new Schema(
 
 //this will get the length of items in the incarceration table.
 incarcerationSchema
-    .virtual('incarcerationCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;

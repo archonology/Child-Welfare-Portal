@@ -38,7 +38,7 @@ const edNeglectSchema = new Schema(
 
 //this will get the length of items in the edNeglect table.
 edNeglectSchema
-    .virtual('edNeglectCount')
+    .virtual('resourceCount')
     // Getter
     .get(function () {
         return this.length;
